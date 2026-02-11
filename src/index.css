@@ -1,0 +1,114 @@
+/* 1. الإعدادات العامة */
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a;
+  color: white;
+  direction: rtl;
+  min-height: 100vh;
+}
+
+/* 2. الحاوية الكبرى */
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+/* 3. شبكة الصناديق - السر هنا */
+.grid {
+  display: flex;
+  flex-direction: row; /* رص أفقي */
+  flex-wrap: wrap;    /* ينزل سطر جديد لو الشاشة صغرت */
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+/* 4. تنسيق الكارت */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: #1e293b;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+  transition: height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.topic-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.vote-number {
+  margin-top: 15px;
+  background: #1e293b;
+  padding: 10px 30px;
+  border-radius: 16px;
+  font-weight: bold;
+  border-bottom: 4px solid transparent; /* بيتغير بالـ inline style */
+}
+
+/* 5. الموبايل */
+@media (max-width: 768px) {
+  .grid { gap: 20px; }
+  .card-wrapper { width: 90%; max-width: 320px; }
+  .card { height: 350px; }
+}
